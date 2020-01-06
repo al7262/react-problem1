@@ -1,0 +1,665 @@
+@font-face {
+    font-family: 'SF Compact Display';
+    src: url('../fonts/SFCompactDisplay-Regular.ttf') format('truetype'); 
+}
+
+/* header style start */
+
+header{
+    padding: 10px 0px;
+    background-color: white;
+    box-shadow: 0px 2px 4px gray;
+    font-family: Muli;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.logo{
+    height: 60px;
+}
+
+.navbar{
+    margin: 0px;
+    padding: 0px;
+}
+
+.navbar-nav{
+    flex-direction: row;
+}
+
+nav li{
+    margin-left: 15px;
+}
+
+.nav-link{
+    color: #19345E;
+}
+
+.nav-link:hover{
+    animation: gradient 3s ease infinite;
+}
+
+@keyframes gradient {
+    20%{color: #3d45b4}
+    40%{color: #66b3d7}
+    50%{color: #12e6df}
+    80%{color: #3888e4}
+}
+
+.active{
+    color: #F47522;
+}
+
+
+/* main-page style start */
+
+.main-bg {
+    background: transparent url('../img/bg-img.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+    margin-top: 40px;
+    height: 599px;
+    max-height: 873px;
+    background-color: lightblue;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.main-image{
+    width: 100%;
+    height: min-content;
+}
+
+.main-intro{
+    padding-left: 75px;
+}
+
+.main-h5{
+    font-family: Roboto;
+    font-size: 25px;
+    font-weight: 700;
+    color: #19345E;
+}
+
+.main-h1{
+    font-family: Roboto;
+    font-size: 85px;
+    font-weight: bold;
+    color: #19345E;
+}
+
+.main-h3{
+    font-family: Roboto;
+    font-size: 35px;
+    font-weight: 700;
+    color: #19345E;
+}
+
+.main-btn{
+    background-color: #F47522;
+    color: white;
+    border: 3px solid #F47522;
+    border-radius: 25px;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: normal;
+    padding: 5px 30px;
+}
+
+.main-btn:hover{
+    background-color: #fef2de;
+    color: #F47522;
+    border: 3px solid #F47522;
+}
+
+
+/* experience-page style start */
+
+.exp-head{
+    margin-top: 80px;
+    background-color: #F4F7FC;
+}
+
+.exp-gap50{
+    height: 50px;
+}
+
+.exp-gap80{
+    height: 80px;
+}
+
+.exp-h1{
+    font-family: Roboto;
+    font-size: 40px;
+    font-weight: 700;
+    color: #19345E;
+    padding: 40px 0px;
+}
+
+.exp-h6{
+    font-family: Roboto;
+    font-size: 17px;
+    font-weight: 700;
+    color: #19345E;
+}
+
+.exp-date{
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 700;
+    color: #ACACAC
+}
+
+.exp-content{
+    font-family: 'SF Compact Display';
+    font-size: 16px;
+    color: #19345E;
+    margin-bottom: 0px;
+}
+
+.exp-vl{
+    border-left: 1px solid #CFD6E2;
+}
+
+.exp-hr{
+    width: 50%;
+    margin-left: 0;
+}
+
+.exp-box{
+    border: 1px solid lightslategrey;
+    border-radius: 20px;
+    background-color: white;
+    padding: 20px;
+}
+
+.exp-box:hover{
+    box-shadow: -2px 4px 12px gray;
+}
+
+.exp-dot {
+    height: 25px;
+    width: 25px;
+    background-color: #19345E;
+    border-radius: 50%;
+    display: inline-block;
+    margin-inline-start: -28.5px;
+}
+
+
+/* about-page style start */
+
+.bgblue{
+    background-color: #F4F7FC;
+}
+
+.about-top{
+    margin-top: 80px;
+}
+.about{
+    height: 120px;
+    padding-left: 90px;
+}
+
+.about-gap25{
+    height: 25px;
+}
+
+.about-gap120{
+    height: 120px;
+}
+
+.about h2{
+    font-family: 'Roboto', sans-serif;
+    color: #19345E;
+    font-weight: bold;
+    font-size: 40px;
+    text-align: left;
+    padding-top: 40px;
+}
+
+.about-information p{
+    color: #19345E;
+    padding-top: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    text-align: left;
+    width: 420px;
+}
+
+.about-education h3{
+    color: #19345E;
+    font-size: 22px;
+    font-family: 'Muli', sans-serif;
+    font-weight: bold;
+}
+
+.about-education-tahun{
+    color: #19345E;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 10px;
+}
+
+.about-education-detail{
+    color: #19345E; 
+    font-size: 16px;
+}
+
+.about-table span{
+    color: #19345E;
+    font-size: 18px;
+    font-weight: bolder;
+    margin-bottom: 10px;
+}
+
+.table{
+    margin-top: 10px;
+    width: 450px;
+    color: #19345E;
+    font-size: 14px;
+    font-family: 'Muli', sans-serif;
+}
+
+.image-2{
+    position: relative;
+}
+
+.image-women{
+    width: 250px;
+    padding-top: 50px;
+    display: table;
+    margin-left: auto;
+}
+
+.image-dot {
+    position: absolute;
+    left: 57px;
+    bottom: -31px;
+}
+
+
+/* contact-page style start */
+
+.image {
+    background-image: url("../img/charles-rRWiVQzLm7k-unsplash.jpg");
+    background-size: cover;
+    position: relative;
+    height: 100vh;
+}
+
+.image .image-bg-color{
+    background-color: #19345E;
+    opacity: 0.65;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.image .image-alterra{
+    position: absolute;
+    z-index: 3;
+    padding: 50% 25%;
+}
+.form{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 150px;
+    padding-right: 255px;
+    font-family: 'Muli', sans-serif;
+}
+
+.form h2{
+    font-size: 23px;
+    text-align: left;
+    color: #19345E;
+}
+
+.form-input:focus{
+    font-size: 20px;
+    text-align: left;
+}
+.form .form-input label{
+    padding-top: 10px;
+}
+
+.form .form-input input{
+    width: 460px;
+    font-size: 18px;
+    color: #19345E;
+    text-align: left;
+}
+
+.form-option {
+    padding-top: 10px;
+    color: #19345E;
+    font-size: 20px;
+}
+
+.message{
+    padding-top: 10px;
+    color: #19345E;
+}
+.message input{
+    height: 80px;
+    width: 460px;
+}
+
+.btn {
+    border-radius: 30px;
+    width: 150px;
+    background-color: #F47522;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+/* footer style start */
+
+footer {
+    background-color: #19345E;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.footer-socmed {
+    align-items: center;
+    vertical-align: middle;
+}
+
+.footer-socmed-title{
+    color: #ffffff;
+    font-size: 14px;
+    padding-bottom: 10px;
+    font-family: "SF Compact Display";
+}
+
+.footer-socmed-list li{
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 15px;
+    align-items: center;
+}
+
+.vl {
+    border-left: 1px solid #ececec;
+}
+
+.copyright {
+    color: #ffffff;
+    font-size: 14px;
+    vertical-align: middle;
+    align-items: center;
+    padding-top: 25px;
+    padding-bottom:25px;
+    font-family: "SF Compact Display";
+}
+
+
+
+/* RESPONSIVE */
+
+@media(max-width: 967px){
+    /* header mobile start */
+
+    /* main-mobile start */
+    .main-h5{
+        font-family: Roboto;
+        font-size: 20px;
+        font-weight: 700;
+        color: #19345E;
+    }
+    
+    .main-h1{
+        font-family: Roboto;
+        font-size: 55px;
+        font-weight: bold;
+        color: #19345E;
+    }
+    
+    .main-h3{
+        font-family: Roboto;
+        font-size: 30px;
+        font-weight: 700;
+        color: #19345E;
+    }
+    .image-dot{
+        left: 40px;
+        bottom: -26px;
+    }
+
+    .image{
+        max-height: 300px;
+    }
+}
+
+@media(max-width: 767px){
+    /* main-mobile start */
+    .main-bg{
+        margin-top: -75px;
+    }
+
+    .main-intro{
+        padding-left: 0px;
+    }
+    
+    .main-h5{
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 700;
+        color: #19345E;
+    }
+    
+    .main-h1{
+        font-family: Roboto;
+        font-size: 40px;
+        font-weight: bold;
+        color: #19345E;
+    }
+    
+    .main-h3{
+        font-family: Roboto;
+        font-size: 20px;
+        font-weight: 700;
+        color: #19345E;
+    }
+
+    .main-btn{
+        font-size: 12px;
+        border-radius: 20px;
+        padding: 2px 5px;
+    }
+    .image-dot {
+        position: absolute;
+        left: 217px;
+        bottom: -31px;
+    }
+    element {
+        padding-left: 25px;
+    }
+
+    .footer-socmed {
+        align-items: center;
+        justify-items: center;
+        display: inline-grid;
+        padding-top: 10px;
+        padding-right: 34px;
+    }
+    .footer-socmed-list {
+        padding-left: 58px;
+    }
+    .vl {
+        border: none;
+    }
+
+    .copyright{
+        padding-right: 12px;
+    }
+
+    /* Contact Us */
+    .image{
+        height: 400px;
+    }
+    .form {
+        padding-top: 40px;
+        padding-bottom: 20px;
+        padding-left: 40px;
+    }
+}
+
+@media(max-width: 575px){
+    /* header mobile start */
+    .nav-mobile{
+        flex-direction: row;
+        margin-top: 10px;
+        align-items: center;
+    }
+
+    .justify-content-end{
+        justify-content: center !important;
+    }
+
+    .logo{
+        height: 50px;
+        display: flex;
+        justify-content: center !important;
+    }
+
+    header{
+        font-size: 12px;
+        padding: 7.5px 0px;
+    }
+
+    nav li{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+
+    /* main-mobile start */
+    .main-bg{
+        margin-top: 100px;
+    }
+
+    .main-intro{
+        padding-left: 0px;
+        padding-top: 20px
+    }
+    
+    .main-h5{
+        font-family: Roboto;
+        font-size: 17px;
+        font-weight: 700;
+        color: #19345E;
+    }
+    
+    .main-h1{
+        font-family: Roboto;
+        font-size: 45px;
+        font-weight: bold;
+        color: #19345E;
+    }
+    
+    .main-h3{
+        font-family: Roboto;
+        font-size: 25px;
+        font-weight: 700;
+        color: #19345E;
+    }
+
+    .main-btn {
+        font-size: 14px;
+        border-radius: 20px;
+        padding: 2px 5px;
+    }
+
+    /* About */
+    .about {
+        height: 120px;
+        padding-left: 90px;
+    }
+    .image-dot {
+        position: absolute;
+        left: 38px;
+        bottom: -31px;
+    }
+
+    .form {
+        padding-top: 40px;
+        padding-bottom: 20px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    .about-information p{
+        width: 100%;
+    }
+
+    .table{
+        width: 100%;
+    }
+
+    .form-control {
+        display: block;
+        width: 100% !important;
+        height: calc(2.25rem + 2px);
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid
+        #ced4da;
+        border-radius: .25rem;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+    /* experience mobile start */
+    .exp-gap50 {
+        height: 25px;
+    }
+
+    .exp-gap80{
+        height:40px;
+    }
+
+    .exp-vl{
+        border-left: 0px;
+    }
+
+    .exp-dot{
+        margin-inline-start: 0px;
+        margin-bottom: -12.5px;
+    }
+
+    .dots-mobile{
+        justify-content: center;
+    }
+
+    .exp-head{
+        margin-top: 100px;
+    }
+
+    .exp-box{
+        margin: 0px 20px;
+    }
+
+    .exp-h6{
+        font-family: Roboto;
+        font-size: 16px;
+        font-weight: 700;
+        color: #19345E;
+    }
+    
+    .exp-date{
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: 700;
+        color: #ACACAC
+    }
+    
+    .exp-content{
+        font-family: 'SF Compact Display';
+        font-size: 14px;
+        color: #19345E;
+        margin-bottom: 0px;
+    }
+}
