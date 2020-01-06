@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'SF Compact Display';
-    src: url('../fonts/SFCompactDisplay-Regular.ttf') format('truetype'); 
+    src: url('../Fonts/SFCompactDisplay-Regular.ttf') format('truetype'); 
 }
 
 /* header style start */
@@ -54,7 +54,7 @@ nav li{
 /* main-page style start */
 
 .main-bg {
-    background: transparent url('../img/bg-img.png') 0% 0% no-repeat padding-box;
+    background: transparent url('../Images/bg-img.png') 0% 0% no-repeat padding-box;
     opacity: 1;
     margin-top: 40px;
     height: 599px;
@@ -282,7 +282,7 @@ nav li{
 /* contact-page style start */
 
 .image {
-    background-image: url("../img/charles-rRWiVQzLm7k-unsplash.jpg");
+    background-image: url('../Images/charles-rRWiVQzLm7k-unsplash.jpg');
     background-size: cover;
     position: relative;
     height: 100vh;
