@@ -1,0 +1,46 @@
+.material-icons {
+    font-family: 'Material Icons';
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item a{
+    font-size: 14px;
+}
+.search-btn{
+    width: 20%;
+    height: 100%;
+    max-width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.search-form{
+    width: 80% !important;
+    max-width: 200px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.navbar-collapse li{
+    text-align: center;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.navbar-collapse .col-lg-3{
+    display: flex;
+    justify-content: center;
+}
+
+.search-navbar{
+    max-width: 240px !important;
+}
+
+.toggler-btn{
+    position: absolute;
+    right:0px;
+}
