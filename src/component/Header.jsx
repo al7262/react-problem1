@@ -50,7 +50,7 @@ class Header extends React.Component{
                                 <div className="search-navbar">
                                     <form className="form-inline my-2 my-lg-0">
                                         <input className="form-control search-form" type="search" placeholder="Search" aria-label="Search" />
-                                        <button className="btn btn-outline-info my-2 my-sm-0 search-btn" type="submit">
+                                        <button className="btn btn-outline-secondary my-2 my-sm-0 search-btn" type="submit">
                                             <i className='material-icons'>search</i>
                                         </button>
                                     </form>

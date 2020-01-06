@@ -44,3 +44,104 @@
     position: absolute;
     right:0px;
 }
+
+.top-article-box{
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+
+.top-title{
+    display: flex;
+    align-items: center;
+    padding: 15px;
+}
+
+.top-title p{
+    padding: 0;
+    margin: 0;
+    font-weight: 900;
+    color: dodgerblue;
+}
+
+.top-title a{
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    right: 30px;
+}
+
+.top-item{
+    padding: 10px 15px;
+    border-top: 1px solid lightgray;
+}
+
+.list-article-box{
+    margin: 0;
+    padding: 20px;
+    border: 1px solid lightgray;
+}
+
+.top-rank{
+    padding: 2px 7px;
+    background-color: firebrick;
+    border-radius: 50px;
+    max-width: 40px;
+}
+
+.top-rank p{
+    padding: 0;
+    margin: 0;
+    color: white;
+    font-size: 12px;
+    text-align: center;
+}
+
+.list-article-box{
+    padding: 0;
+    margin: 0;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    margin-bottom: 40px;
+}
+
+.list-article-box img{
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}
+
+.list-article-box h4{
+    font-weight: bold;
+    margin: 0;
+    padding: 20px 20px 0 20px;
+    margin-bottom: 10px;
+}
+
+.list-article-box p{
+    font-size: 14px;
+    padding: 0 20px;
+    margin-bottom: 10px;
+}
+
+.list-article-box label{
+    font-size: 12px;
+    padding: 20px;
+    color: lightgray;
+}
+
+.list-action{
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.list-action a{
+    width: 33.3333333%;
+    display: flex;
+    justify-content: center;
+    color: lightsteelblue;
+}
+
+.list-action a:hover{
+    color: dodgerblue;
+    text-decoration: none;
+}
