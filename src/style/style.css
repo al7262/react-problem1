@@ -145,3 +145,35 @@
     color: dodgerblue;
     text-decoration: none;
 }
+
+.loading-content{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.loading-content i{
+    font-size: 100px;
+    color: lightskyblue;
+    animation: rotation 2s infinite linear;
+}
+
+.loading-sidebar{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.loading-sidebar i{
+    color: lightskyblue;
+    animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+    from {
+            -webkit-transform: rotate(0deg);
+    }
+    to {
+            -webkit-transform: rotate(-359deg);
+    }
+}

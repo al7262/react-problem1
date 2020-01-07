@@ -6,17 +6,25 @@ import TopArticle from '../component/TopArticle'
 import ListArticle from '../component/ListArticle'
 
 class HomePage extends React.Component{
+    state = {
+        category: 'general'
+    }
+
+    setCategory = async (value) => {
+        await this.setState({category: value})
+    }
+
     render(){
         return(
             <div>
-                <Header />
+                <Header setCategory={this.setCategory} />
                 <div className="container">
                     <div className="row mt-5">
                         <div className="col-lg-4">
                             <TopArticle />
                         </div>
                         <div className="col-lg-8">
-                            <ListArticle />
+                            <ListArticle category={this.state.category}/>
                         </div>
                     </div>
                 </div>

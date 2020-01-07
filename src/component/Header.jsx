@@ -23,23 +23,23 @@ class Header extends React.Component{
                             <div className="col-lg-6">
                                 <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                                     <li className="nav-item active">
-                                        <a className="nav-link" href="#">Sports <span className="sr-only">(current)</span></a>
+                                        <a className="nav-link" href="#" onClick={() => this.props.setCategory('sports')}>Sports <span className="sr-only">(current)</span></a>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link" href="#">Economy</a>
+                                        <a className="nav-link" href="#" onClick={() => this.props.setCategory('economy')}>Economy</a>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link" href="#">Politic</a>
+                                        <a className="nav-link" href="#" onClick={() => this.props.setCategory('politic')}>Politic</a>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link" href="#">Entertainment</a>
+                                        <a className="nav-link" href="#" onClick={() => this.props.setCategory('entertainment')}>Entertainment</a>
                                     </li>
                                     <li className="nav-item dropdown">
                                         <a className="nav-link dropdown-toggle" href="#" role="button" id="othersToggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Others</a>
                                         <div class="dropdown-menu bg-light" aria-labelledby="othersToggle">
-                                            <a class="dropdown-item" href="#">Celebrity</a>
-                                            <a class="dropdown-item" href="#">Fun Fact</a>
-                                            <a class="dropdown-item" href="#">Electronic</a>
+                                            <a class="dropdown-item" href="#" onClick={() => this.props.setCategory('celebrity')}>Celebrity</a>
+                                            <a class="dropdown-item" href="#" onClick={() => this.props.setCategory('random')}>Fun Fact</a>
+                                            <a class="dropdown-item" href="#" onClick={() => this.props.setCategory('electronic')}>Electronic</a>
                                         </div>
                                     </li>
                                 </ul>
