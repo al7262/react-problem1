@@ -20,7 +20,6 @@ class LoginPage extends React.Component{
         axios
           .post("https://justrandomapi.free.beeceptor.com/auth", data)
           .then(function (response) {
-              console.log(response.data);
               if (response.data.hasOwnProperty("token")) {
                 localStorage.setItem("token", response.data.token);
                 localStorage.setItem("loggedIn", true);
@@ -37,7 +36,6 @@ class LoginPage extends React.Component{
       };
 
     changeInput = event =>{
-        console.log(this.state)
         this.setState({[event.target.name]: event.target.value})
     }
 

@@ -26,6 +26,7 @@ class HomePage extends React.Component{
                     setCategory={this.setCategory}
                     searchItem={this.searchItem}
                     isNews={true}
+                    {...this.props}
                     />
                 <div className="container">
                     <div className="row mt-5">

@@ -21,7 +21,6 @@ class ListArticle extends React.Component{
     }
     
     setCategory = async (value) => {
-        console.warn("CATEGORY");
         await this.setState({category: value});
         if(value!=='general'){
             await this.props.history.replace("/category/" + value);
@@ -35,7 +34,6 @@ class ListArticle extends React.Component{
     }
 
     setSearch = async (value) => {
-        console.warn("SEARCH");
         if (value!==this.state.search){
             await this.setState({search: value})
             console.warn("From inside search", this.state)
@@ -48,7 +46,6 @@ class ListArticle extends React.Component{
         .get(`${urlHeadLine}&q="${keyword}"`)
         .then( async (response) => {
             await this.setState({listNews: response.data.articles, isLoading: false})
-                console.log(this.state)
             })
             .catch((error) => {
                 this.setState({isLoading: false})
