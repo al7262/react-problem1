@@ -4,7 +4,7 @@ import '../style/bootstrap.min.css';
 import '../style/style.css';
 import ListArticleStructure from '../component/ListArticleStructure';
 
-const apiKey = "74e129a019794840bfbecacf5926d995";
+const apiKey = "fa53fb2789cb4ec9b6074252dc28440d";
 const baseUrl = "https://newsapi.org/v2/";
 const urlHeadLine = baseUrl + "everything?language=en&pageSize=10&sortBy=publishedAt&apiKey=" + apiKey;
 
@@ -12,23 +12,42 @@ class ListArticle extends React.Component{
     state = {
         listNews: [],
         isLoading: true,
-        category: this.props.category
+        category: this.props.category,
+        search: this.props.search
     }
 
     resetState = () => {
         this.setState({listNews: [], isLoading: true})
     }
     
-    setCategory = (value) => {
-        this.setState({category: value})
+    setCategory = async (value) => {
+        console.warn("CATEGORY");
+        await this.setState({category: value});
+        if(value!=='general'){
+            await this.props.history.replace("/category/" + value);
+        }
+        const params = await this.props.match.params.category
+        value = await params===undefined? value : params
+        if (this.state.category!==value){
+            await this.setState({category: value});
+        }
+        this.getArticle(value)
     }
 
-    getArticle = (category) => {
-        this.setCategory(category)
-        axios
-            .get(`${urlHeadLine}&q=${category}`)
-            .then((response) => {
-                this.setState({listNews: response.data.articles, isLoading: false})
+    setSearch = async (value) => {
+        console.warn("SEARCH");
+        if (value!==this.state.search){
+            await this.setState({search: value})
+            console.warn("From inside search", this.state)
+        }
+        await this.getArticle(this.state.search)
+    }
+
+    getArticle = async (keyword) => {
+        await axios
+        .get(`${urlHeadLine}&q="${keyword}"`)
+        .then( async (response) => {
+            await this.setState({listNews: response.data.articles, isLoading: false})
                 console.log(this.state)
             })
             .catch((error) => {
@@ -38,19 +57,22 @@ class ListArticle extends React.Component{
 
     componentDidMount = () => {
         const self = this;
-        self.getArticle(self.state.category)
+        self.setCategory(self.state.category)
     }
 
-    componentWillReceiveProps = (nextProps) => {
-        const self = this;
-        self.resetState()
-        if (nextProps!==self.state.category){
-            self.getArticle(nextProps.category)
+    componentWillReceiveProps = async (nextProps) => {
+        const self = this;        
+        if (nextProps.search!==self.state.search){
+            await this.setSearch(nextProps.search)
+        }
+        else if (nextProps.category!==self.state.category){
+            self.resetState()
+            await this.setCategory(nextProps.category)
         }
     }
 
     render(){
-        const {listNews, isLoading, category } = this.state;
+        const {listNews, isLoading } = this.state;
         const newsFiltered = listNews.filter(item => {
             if (item.content !== null && item.image !== null){
                 return item

@@ -3,7 +3,7 @@ import axios from "axios";
 import '../style/bootstrap.min.css';
 import '../style/style.css';
 import TopArticleStructure from './TopArticleStructure'
-const apiKey = "74e129a019794840bfbecacf5926d995";
+const apiKey = "fa53fb2789cb4ec9b6074252dc28440d";
 const baseUrl = "https://newsapi.org/v2/";
 const urlHeadLine = baseUrl + "top-headlines?language=en&pageSize=5&sortBy=publishedAt&apiKey=" + apiKey;
 
@@ -18,7 +18,6 @@ class TopArticle extends React.Component{
             .get(urlHeadLine)
             .then((response) => {
                 this.setState({listNews: response.data.articles, isLoading: false})
-                console.log(this.state)
             })
             .catch((error) => {
                 this.setState({isLoading: false})
@@ -33,7 +32,6 @@ class TopArticle extends React.Component{
     render(){
         const {listNews, isLoading} = this.state;
         const newsToShow = listNews.map((item, key) => {
-            console.log(key)
             return (
                 <TopArticleStructure
                     key={key}

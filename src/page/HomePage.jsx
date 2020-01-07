@@ -7,24 +7,37 @@ import ListArticle from '../component/ListArticle'
 
 class HomePage extends React.Component{
     state = {
-        category: 'general'
+        category: 'general',
+        search: ''
     }
 
     setCategory = async (value) => {
         await this.setState({category: value})
     }
 
+    searchItem = async (value) => {
+        await this.setState({search: value})
+    }
+
     render(){
         return(
             <div>
-                <Header setCategory={this.setCategory} />
+                <Header 
+                    setCategory={this.setCategory}
+                    searchItem={this.searchItem}
+                    isNews={true}
+                    />
                 <div className="container">
                     <div className="row mt-5">
                         <div className="col-lg-4">
                             <TopArticle />
                         </div>
                         <div className="col-lg-8">
-                            <ListArticle category={this.state.category}/>
+                            <ListArticle 
+                                category={this.state.category}
+                                search={this.state.search}
+                                {...this.props}
+                                />
                         </div>
                     </div>
                 </div>
