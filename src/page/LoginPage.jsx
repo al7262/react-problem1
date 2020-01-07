@@ -18,7 +18,7 @@ class LoginPage extends React.Component{
         };
         const self = this;
         axios
-          .post("https://justrandomapi.free.beeceptor.com/auth", data)
+          .post("https://justrandomapi2.free.beeceptor.com/auth", data)
           .then(function (response) {
               if (response.data.hasOwnProperty("token")) {
                 localStorage.setItem("token", response.data.token);

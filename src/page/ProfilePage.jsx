@@ -13,7 +13,7 @@ class ProfilePage extends React.Component{
     render(){
         console.warn("loggedIn", this.loggedIn);
         if (this.loggedIn === false) {
-            return <Redirect to={{ pathname: "/signin" }} />;
+            return <Redirect to={{ pathname: "/login" }} />;
         } else {
             return (
                 <React.Fragment>

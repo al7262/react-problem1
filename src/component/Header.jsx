@@ -11,7 +11,8 @@ class Header extends React.Component{
     loggedIn = JSON.parse(localStorage.getItem("loggedIn"));
     state = {
         placeholder: 'Search',
-        search: ''
+        search: '',
+        loggedIn: this.loggedIn
     }
 
     handlingChange = async event => {
@@ -19,6 +20,12 @@ class Header extends React.Component{
             await this.setState({search: event.target.value})
             this.props.searchItem(this.state.search)
         }
+    }
+
+    handlingLogout = async () => {
+        await localStorage.setItem('loggedIn', false);
+        this.setState({loggedIn: false})
+        this.props.history.push('/')
     }
 
     handlingCategory = async (value) => {
@@ -42,7 +49,7 @@ class Header extends React.Component{
 
                         <div className="collapse navbar-collapse col-lg-10" id="navbar">
                             <div className="col-lg-6">
-                                { this.loggedIn? <CategoryNav handlingCategory={this.handlingCategory}{...this.props}/>:null }
+                                { this.state.loggedIn? <CategoryNav handlingCategory={this.handlingCategory}{...this.props}/>:null }
 
                             </div>
 
@@ -64,9 +71,8 @@ class Header extends React.Component{
                             </div>
 
                             <div className="col-lg-2 pr-0">
-                                    {
-                                        this.loggedIn? <LogoutNav {...this.props}/> : <LoginNav {...this.props}/>
-                                    }
+                                {console.log(this.state.loggedIn)}
+                                { this.state.loggedIn? <LogoutNav handlingLogout={this.handlingLogout}{...this.props}/> : <LoginNav {...this.props}/> }
                             </div>
                             
                         </div>
