@@ -4,7 +4,7 @@ import '../style/bootstrap.min.css';
 import '../style/style.css';
 import ListArticleStructure from '../component/ListArticleStructure';
 
-const apiKey = "fa53fb2789cb4ec9b6074252dc28440d";
+const apiKey = "7ff942b76b864ea8904d8458191e56b0";
 const baseUrl = "https://newsapi.org/v2/";
 const urlHeadLine = baseUrl + "everything?language=en&pageSize=10&sortBy=publishedAt&apiKey=" + apiKey;
 

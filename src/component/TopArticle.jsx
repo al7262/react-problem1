@@ -3,7 +3,7 @@ import axios from "axios";
 import '../style/bootstrap.min.css';
 import '../style/style.css';
 import TopArticleStructure from './TopArticleStructure'
-const apiKey = "fa53fb2789cb4ec9b6074252dc28440d";
+const apiKey = "7ff942b76b864ea8904d8458191e56b0";
 const baseUrl = "https://newsapi.org/v2/";
 const urlHeadLine = baseUrl + "top-headlines?language=en&pageSize=5&sortBy=publishedAt&apiKey=" + apiKey;
 
