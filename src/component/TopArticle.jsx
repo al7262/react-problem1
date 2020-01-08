@@ -3,21 +3,21 @@ import axios from "axios";
 import '../style/bootstrap.min.css';
 import '../style/style.css';
 import TopArticleStructure from './TopArticleStructure'
+import { withRouter } from 'react-router-dom';
+import { connect } from "unistore/react";
+import { actions } from "../store/MainStore";
+
 const apiKey = "7ff942b76b864ea8904d8458191e56b0";
 const baseUrl = "https://newsapi.org/v2/";
 const urlHeadLine = baseUrl + "top-headlines?language=en&pageSize=5&sortBy=publishedAt&apiKey=" + apiKey;
 
 class TopArticle extends React.Component{
-    state = {
-        listNews: [],
-        isLoading: true,
-    }
-
     getArticle = () => {
         axios
             .get(urlHeadLine)
             .then((response) => {
-                this.setState({listNews: response.data.articles, isLoading: false})
+                this.props.handleChange('topArticle', response.data.articles);
+                this.props.handleChange('topLoading', false);
             })
             .catch((error) => {
                 this.setState({isLoading: false})
@@ -30,7 +30,8 @@ class TopArticle extends React.Component{
     }
 
     render(){
-        const {listNews, isLoading} = this.state;
+        const listNews = this.props.topArticle,
+            isLoading = this.props.topLoading
         const newsToShow = listNews.map((item, key) => {
             return (
                 <TopArticleStructure
@@ -54,4 +55,7 @@ class TopArticle extends React.Component{
     }
 }
 
-export default TopArticle
+export default connect(
+    "topArticle, topLoading",
+    actions
+    )(withRouter(TopArticle))

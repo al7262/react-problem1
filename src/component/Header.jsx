@@ -1,33 +1,16 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import {Link, withRouter} from "react-router-dom";
 import '../style/bootstrap.min.css';
 import '../style/style.css';
 import logo from '../image/logo.svg';
 import CategoryNav from './CategoryNav'
 import LoginNav from './LoginNav'
 import LogoutNav from './LogoutNav'
+import { connect } from "unistore/react";
+import { actions } from "../store/MainStore";
 
 class Header extends React.Component{
-    loggedIn = JSON.parse(localStorage.getItem("loggedIn"));
-    state = {
-        placeholder: 'Search',
-        search: '',
-        loggedIn: this.loggedIn
-    }
-
-    handlingChange = async event => {
-        if (event.target.value !== this.state.search){
-            await this.setState({search: event.target.value})
-            this.props.searchItem(this.state.search)
-        }
-    }
-
-    handlingLogout = async () => {
-        await localStorage.setItem('loggedIn', false);
-        this.setState({loggedIn: false})
-        this.props.history.push('/')
-    }
-
+    
     handlingCategory = async (value) => {
         await this.props.history.replace("/category/" + value);
     }
@@ -38,7 +21,7 @@ class Header extends React.Component{
                 <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
                     <div className="container-fluid row">
                         <div className="col-lg-2 d-flex align-items-center">
-                            <Link to='/' onClick={()=>this.props.isNews?this.props.setCategory('general'):this.handlingCategory('general')} className="navbar-brand">
+                            <Link to='/' onClick={()=>this.props.isNews?this.props.handlingChange('category', 'general'):this.handlingCategory('general')} className="navbar-brand">
                                 <img src={logo} style={{height: '40px'}} />
                                 <span>RandomNews</span>
                             </Link>
@@ -49,8 +32,7 @@ class Header extends React.Component{
 
                         <div className="collapse navbar-collapse col-lg-10" id="navbar">
                             <div className="col-lg-6">
-                                { this.state.loggedIn? <CategoryNav handlingCategory={this.handlingCategory}{...this.props}/>:null }
-
+                                { this.props.loggedIn? <CategoryNav isNews={this.props.isNews} handlingCategory={this.handlingCategory}{...this.props}/>:null }
                             </div>
 
                             <div className="col-lg-4">
@@ -58,10 +40,11 @@ class Header extends React.Component{
                                     <form className="form-inline my-2 my-lg-0">
                                         <input className="form-control search-form"
                                             type="search" 
-                                            placeholder={this.state.placeholder} 
+                                            name="search"
+                                            placeholder="Search"
                                             aria-label="Search" 
-                                            value={this.state.search}
-                                            onChange={this.handlingChange}
+                                            value={this.props.search}
+                                            onChange={event => this.props.handleInput(event)}
                                             />
                                         <button className="btn btn-outline-secondary my-2 my-sm-0 search-btn" type="submit">
                                             <i className='material-icons'>search</i>
@@ -71,8 +54,7 @@ class Header extends React.Component{
                             </div>
 
                             <div className="col-lg-2 pr-0">
-                                {console.log(this.state.loggedIn)}
-                                { this.state.loggedIn? <LogoutNav handlingLogout={this.handlingLogout}{...this.props}/> : <LoginNav {...this.props}/> }
+                                { this.props.loggedIn? <LogoutNav {...this.props}/> : <LoginNav {...this.props}/> }
                             </div>
                             
                         </div>
@@ -83,4 +65,6 @@ class Header extends React.Component{
     }
 }
 
-export default Header;
+export default connect(
+    "loggedIn, search",
+    actions)(withRouter(Header));

@@ -1,30 +1,18 @@
 import React from "react";
 import '../style/bootstrap.min.css';
 import '../style/style.css';
-import Header from '../component/Header'
-import TopArticle from '../component/TopArticle'
-import ListArticle from '../component/ListArticle'
+import Header from '../component/Header';
+import TopArticle from '../component/TopArticle';
+import ListArticle from '../component/ListArticle';
+import { withRouter } from 'react-router-dom';
+import { connect } from "unistore/react";
+import { actions } from "../store/MainStore";
 
 class HomePage extends React.Component{
-    state = {
-        category: 'general',
-        search: ''
-    }
-
-    setCategory = async (value) => {
-        await this.setState({category: value})
-    }
-
-    searchItem = async (value) => {
-        await this.setState({search: value})
-    }
-
     render(){
         return(
             <div>
                 <Header 
-                    setCategory={this.setCategory}
-                    searchItem={this.searchItem}
                     isNews={true}
                     {...this.props}
                     />
@@ -35,8 +23,8 @@ class HomePage extends React.Component{
                         </div>
                         <div className="col-lg-8">
                             <ListArticle 
-                                category={this.state.category}
-                                search={this.state.search}
+                                category={this.props.category}
+                                search={this.props.search}
                                 {...this.props}
                                 />
                         </div>
@@ -47,4 +35,7 @@ class HomePage extends React.Component{
     }
 }
 
-export default HomePage
+export default connect(
+        "category, search",
+        actions
+        )(withRouter(HomePage))

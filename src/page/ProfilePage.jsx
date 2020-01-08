@@ -1,18 +1,19 @@
 import React from "react";
-import {Redirect} from 'react-router-dom';
+import {Redirect, withRouter} from 'react-router-dom';
 import '../style/bootstrap.min.css';
 import '../style/style.css';
 import Header from '../component/Header'
+import { connect } from "unistore/react";
+import { actions } from "../store/MainStore";
 
 class ProfilePage extends React.Component{
-    loggedIn = JSON.parse(localStorage.getItem("loggedIn"));
-    email = localStorage.getItem("email");
-    name = localStorage.getItem("name");
-    image = localStorage.getItem("image");
-    status = localStorage.getItem("status");
+    loggedIn = this.props.loggedIn
+    email = this.props.email
+    name = this.props.name
+    image = this.props.image
+    status = this.props.status
     render(){
-        console.warn("loggedIn", this.loggedIn);
-        if (this.loggedIn === false) {
+        if (this.props.loggedIn === false) {
             return <Redirect to={{ pathname: "/login" }} />;
         } else {
             return (
@@ -38,4 +39,7 @@ class ProfilePage extends React.Component{
     }
 }
 
-export default ProfilePage
+export default connect(
+    "loggedIn, email, name, image, status"
+    , actions
+    )(withRouter(ProfilePage))

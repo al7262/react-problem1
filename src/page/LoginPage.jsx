@@ -1,43 +1,37 @@
 import React from "react";
 import axios from "axios";
+import {withRouter} from "react-router-dom"
 import '../style/bootstrap.min.css';
 import '../style/style.css';
-import Header from '../component/Header'
+import Header from '../component/Header';
+import { connect } from "unistore/react";
+import { actions } from "../store/MainStore";
 
 class LoginPage extends React.Component{
-    state = {
-        username: '',
-        password: ''
-    }
-
-    postLogin = () => {
-        const { username, password } = this.state;
-        const data = {
-          username: username,
-          password: password
+    postLogin = async () => {
+        const data = await {
+          username: this.props.username,
+          password: this.props.password
         };
         const self = this;
-        axios
+        await axios
           .post("https://justrandomapi2.free.beeceptor.com/auth", data)
           .then(function (response) {
               if (response.data.hasOwnProperty("token")) {
-                localStorage.setItem("token", response.data.token);
-                localStorage.setItem("loggedIn", true);
-                localStorage.setItem("name", response.data.name);
-                localStorage.setItem("email", response.data.email);
-                localStorage.setItem("status", response.data.status);
-                localStorage.setItem("image", response.data.image);
+                self.props.handleChange("token", response.data.token);
+                self.props.handleChange("loggedIn", true);
+                self.props.handleChange("name", response.data.name);
+                self.props.handleChange("email", response.data.email);
+                self.props.handleChange("status", response.data.status);
+                self.props.handleChange("image", response.data.image);
                 self.props.history.push("/profile");
             }
           })
           .catch(function (error) {
             console.log(error);
           });
-      };
-
-    changeInput = event =>{
-        this.setState({[event.target.name]: event.target.value})
-    }
+        alert('Welcome back!')
+    };
 
     render(){
         return(
@@ -54,14 +48,14 @@ class LoginPage extends React.Component{
                                     name='username'
                                     id='username'
                                     placeholder='Input your username'
-                                    onChange={event=>this.changeInput(event)}
+                                    onChange={event=>this.props.handleInput(event)}
                                     /><br/>
                                 <label htmlFor='password'>Password:</label><br/>
                                 <input type="password"
                                     name='password'
                                     id='password'
                                     placeholder='Input your password'
-                                    onChange={event=>this.changeInput(event)}
+                                    onChange={event=>this.props.handleInput(event)}
                                     /><br/>
                                 <div className="button">
                                     <button className="btn btn-secondary" onClick={()=>this.postLogin()}>Login</button>
@@ -77,4 +71,7 @@ class LoginPage extends React.Component{
     }
 }
 
-export default LoginPage
+export default connect(
+    "username, password, loggedIn",
+    actions
+    )(withRouter(LoginPage))
