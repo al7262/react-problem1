@@ -78,14 +78,13 @@ class ListArticle extends React.Component{
         })
 
         const newsToShow = newsFiltered.map((item, key) => {
-            date=item.publishedAt
             return (
                 <ListArticleStructure
                     key={key}
                     title={item.title}
                     image={item.urlToImage}
                     brief={item.description}
-                    date={item.date}
+                    date={item.publishedAt}
                     url={item.url}
                 />
             )
