@@ -12,13 +12,6 @@ const baseUrl = "https://newsapi.org/v2/";
 const urlHeadLine = baseUrl + "everything?language=en&pageSize=10&sortBy=publishedAt&apiKey=" + apiKey;
 
 class ListArticle extends React.Component{
-    // state = {
-    //     listNews: [],
-    //     isLoading: true,
-    //     category: this.props.category,
-    //     search: this.props.search
-    // }
-
     resetState = () => {
         this.props.handleChange('listArticle', [])
         this.props.handleChange('listLoading', true)
@@ -85,12 +78,14 @@ class ListArticle extends React.Component{
         })
 
         const newsToShow = newsFiltered.map((item, key) => {
+            date=item.publishedAt
             return (
                 <ListArticleStructure
                     key={key}
                     title={item.title}
                     image={item.urlToImage}
                     brief={item.description}
+                    date={item.date}
                     url={item.url}
                 />
             )
