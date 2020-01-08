@@ -11,6 +11,7 @@ class LogoutNav extends React.Component{
         this.props.history.push('/')
         alert('You have logged out!')
     }
+    
     render(){
         return(
             <ul className="navbar-nav ml-auto mt-2 mt-lg-0">

@@ -15,16 +15,20 @@ class LoginPage extends React.Component{
         };
         const self = this;
         await axios
-          .post("https://justrandomapi2.free.beeceptor.com/auth", data)
+          .post("https://justrandomapi3.free.beeceptor.com/auth", data)
           .then(function (response) {
               if (response.data.hasOwnProperty("token")) {
-                self.props.handleChange("token", response.data.token);
-                self.props.handleChange("loggedIn", true);
-                self.props.handleChange("name", response.data.name);
-                self.props.handleChange("email", response.data.email);
-                self.props.handleChange("status", response.data.status);
-                self.props.handleChange("image", response.data.image);
+                const dict = {
+                    token: response.data.token,
+                    loggedIn: true,
+                    name: response.data.name,
+                    email: response.data.email,
+                    status: response.data.status,
+                    image: response.data.image,
+                }
+                self.props.handleManyChanges(dict);
                 self.props.history.push("/profile");
+                console.log('profileee')
             }
           })
           .catch(function (error) {

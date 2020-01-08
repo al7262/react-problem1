@@ -21,7 +21,7 @@ class Header extends React.Component{
                 <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
                     <div className="container-fluid row">
                         <div className="col-lg-2 d-flex align-items-center">
-                            <Link to='/' onClick={()=>this.props.isNews?this.props.handlingChange('category', 'general'):this.handlingCategory('general')} className="navbar-brand">
+                            <Link to='/' onClick={()=>this.props.isNews?this.props.handleChange('category', 'general'):this.handlingCategory('general')} className="navbar-brand">
                                 <img src={logo} style={{height: '40px'}} />
                                 <span>RandomNews</span>
                             </Link>

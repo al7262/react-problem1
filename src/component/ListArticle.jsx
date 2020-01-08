@@ -40,15 +40,15 @@ class ListArticle extends React.Component{
     }
 
     getArticle = async (keyword) => {
-        await axios
-        .get(`${urlHeadLine}&q="${keyword}"`)
-        .then( async (response) => {
-            await this.props.handleChange('listArticle', response.data.articles);
-            await this.props.handleChange('listLoading', false);
-            })
-        .catch( async (error) => {
-            await this.props.handleChange('listLoading', false);
-        })
+        const urlPlusCategory = `${urlHeadLine}&q="${keyword}"`
+        await this.props.handleGetApi(urlPlusCategory)
+        const data = await this.props.data
+        console.log(data)
+        const dict = await {
+            listArticle: data.articles,
+            listLoading: false,
+        }
+        this.props.handleManyChanges(dict)
     }
 
     componentDidMount = () => {
@@ -59,6 +59,7 @@ class ListArticle extends React.Component{
     componentWillReceiveProps = async (nextProps) => {
         const self = this;        
         if (nextProps.search!==self.props.search){
+            this.resetState()
             await this.setSearch(nextProps.search)
         }
         else if (nextProps.category!==self.props.category){
@@ -100,6 +101,6 @@ class ListArticle extends React.Component{
 }
 
 export default connect(
-    "listArticle, listLoading",
+    "listArticle, listLoading, data",
     actions
     )(withRouter(ListArticle));

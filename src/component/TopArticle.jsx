@@ -12,16 +12,15 @@ const baseUrl = "https://newsapi.org/v2/";
 const urlHeadLine = baseUrl + "top-headlines?language=en&pageSize=5&sortBy=publishedAt&apiKey=" + apiKey;
 
 class TopArticle extends React.Component{
-    getArticle = () => {
-        axios
-            .get(urlHeadLine)
-            .then((response) => {
-                this.props.handleChange('topArticle', response.data.articles);
-                this.props.handleChange('topLoading', false);
-            })
-            .catch((error) => {
-                this.setState({isLoading: false})
-            })
+    getArticle = async () => {
+        await this.props.handleGetApi(urlHeadLine)
+        const data = await this.props.data
+        console.log(data)
+        const dict = await {
+            topArticle: data.articles,
+            topLoading: false,
+        }
+        this.props.handleManyChanges(dict)
     }
 
     componentDidMount = () => {
@@ -56,6 +55,6 @@ class TopArticle extends React.Component{
 }
 
 export default connect(
-    "topArticle, topLoading",
+    "topArticle, topLoading, data",
     actions
     )(withRouter(TopArticle))
