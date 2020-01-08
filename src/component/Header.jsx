@@ -30,12 +30,12 @@ class Header extends React.Component{
                             </button>
                         </div>
 
-                        <div className="collapse navbar-collapse col-lg-10" id="navbar">
-                            <div className="col-lg-6">
+                        <div className="collapse navbar-collapse col-lg-10 pr-0" id="navbar">
+                            <div className="col-lg-6 pr-0">
                                 { this.props.loggedIn? <CategoryNav isNews={this.props.isNews} handlingCategory={this.handlingCategory}{...this.props}/>:null }
                             </div>
 
-                            <div className="col-lg-4 d-flex justify-content-center">
+                            <div className="col-lg-4 d-flex justify-content-center pr-0">
                                 <div className="search-navbar">
                                     <form className="form-inline my-2 my-lg-0">
                                         <input className="form-control search-form"
