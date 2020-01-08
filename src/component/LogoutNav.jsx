@@ -18,7 +18,7 @@ class LogoutNav extends React.Component{
                     <Link className="nav-link" onClick={this.loggedOut}>Logout</Link>
                 </li>
                 <li className="nav-item mr-0">
-                    <Link className="nav-link" to="/profile"><img className="small-profile" src={this.image} alt=""/></Link>
+                    <Link className="nav-link" to="/profile"><img className="small-profile" src={this.image} alt="small-profile-pic"/></Link>
                 </li>
             </ul>
         )

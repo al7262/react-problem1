@@ -23,7 +23,7 @@ class ProfilePage extends React.Component{
                         <div className="row mt-5">
                             <div className="col-lg-3"></div>
                             <div className="col-lg-6 profile-box shadow-sm">
-                                <img src={this.image} alt=""/>
+                                <img src={this.image} alt="profile-picture"/>
                                 <h4>{this.name}</h4>
                                 <div className="details">
                                     <p><span>Email:</span>{this.email}</p>

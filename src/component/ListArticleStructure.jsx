@@ -6,7 +6,7 @@ class ListArticleStructure extends React.Component{
     render(){
         return(
             <div className="list-article-box shadow-sm">
-                <img src={this.props.image} alt=""/>
+                <img src={this.props.image} alt="article-picture"/>
                 <h4>
                     <a href={this.props.url}>
                         {this.props.title}
