@@ -35,7 +35,7 @@ class Header extends React.Component{
                                 { this.props.loggedIn? <CategoryNav isNews={this.props.isNews} handlingCategory={this.handlingCategory}{...this.props}/>:null }
                             </div>
 
-                            <div className="col-lg-4">
+                            <div className="col-lg-4 d-flex justify-content-center">
                                 <div className="search-navbar">
                                     <form className="form-inline my-2 my-lg-0">
                                         <input className="form-control search-form"
